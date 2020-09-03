@@ -1,0 +1,90 @@
+<<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="[[CUSTOM IMAGE TEXT]]">
+{% for block in section.blocks %}
+{% if block.settings.image_allignment ==  '-left' %}
+	<div class="section-container-feature-row">
+    <div class="page-content-feature-row">
+      <div class="content-feature-row">
+        <div class="block-content-image">
+            <img class="content-image" src="{{ block.settings.image | img_url: 'master' }}" />
+        </div>
+        <div class="block-content-text{{ block.settings.image_allignment }}">
+          <h3>{{ block.settings.heading }}</h3>
+          <div class="content-text">
+            <p>{{ block.settings.first_description }}</p>
+        	</div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <div class="section-container-feature-row">
+    <div class="page-content-feature-row">
+      <div class="content-feature-row">
+        <div class="block-content-text{{ block.settings.image_allignment }}">
+       	  <h3>{{ block.settings.heading }}</h3>
+            <div class="content-text">
+              <p>{{ block.settings.first_description }}</p>
+            </div>
+        </div>
+        <div class="block-content-image">
+          <img class="content-image" src="{{ block.settings.image | img_url: 'master' }}" />
+       	</div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{%endfor%}
+</>
+
+  
+{% schema %}
+{
+	"name": "Image + Text",
+	"settings": [],
+	"blocks": [{
+		"name": "Custom Image Text",
+		"type": "image",
+		"settings": [{
+				"id": "image",
+				"type": "image_picker",
+				"label": "Your image"
+			},
+			{
+				"id": "image_allignment",
+				"type": "select",
+				"options": [{
+						"value": "-right",
+						"label": "right"
+					},
+					{
+						"value": "-left",
+						"label": "left"
+					}
+				],
+				"label": "image allignment",
+				"default": "-left"
+			},
+			{
+				"id": "heading",
+				"type": "richtext",
+				"label": "Heading"
+			},
+			{
+				"id": "first_description",
+				"type": "richtext",
+				"label": "first description"
+			}
+		]
+	}],
+	"presets": [{
+		"name": "Section Image + Text",
+		"category": "SECTIONS CUSTOM"
+	}]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

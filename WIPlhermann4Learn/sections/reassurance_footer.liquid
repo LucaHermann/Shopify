@@ -1,0 +1,45 @@
+<div class="block-container" id="textsection">
+  {% for block in section.blocks %}
+  <div class="block-content">
+    <img class="block-img" src="{{ block.settings.image | img_url: '100x100' }}" />
+    <h3 class="block-heading">{{ block.settings.heading }}</h3>
+    <p class="block-paragraph">{{ block.settings.first_description }}</p>
+    <p class="block-paragraph">{{ block.settings.second_description }}</p>
+  </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+ {
+ 	"name": "reassurance",
+ 	"settings": [],
+ 	"blocks": [
+	{
+ 		"name": "icon_section",
+ 		"type": "image",
+ 		"settings": [
+			{
+ 			"id": "image",
+ 			"type": "image_picker",
+ 			"label": "Your image"
+ 			},
+			{
+ 			"id": "heading",
+ 			"type": "richtext",
+ 			"label": "Heading"
+ 			},
+ 			{
+ 			"id": "first_description",
+ 			"type": "richtext",
+ 			"label": "first description
+ 			},
+ 			{
+ 			"id": "second_description",
+ 			"type": "richtext",
+ 			"label": "second description"
+ 			}
+		]
+ 	}
+]
+ }
+{% endschema %}
