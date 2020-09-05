@@ -1,0 +1,84 @@
+{%- include 'modal__carateristic-product-hero' -%}
+{%- include 'modal__delivery-product-hero' -%}
+
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="[[product-hero]]">
+  <div class="container custom-footer-block-padding">
+  	<hr>
+      <div class="custom-footer-block-container">
+        <div class="custom-footer-block-global">
+          <div class="custom-footer-block-section">
+            <div class="custom-footer-image-container">
+              <img class="custom-footer-icon" src="{{ section.settings.iconOne | img_url: '150x100' }}" alt="iconCaracteristic" />
+            </div>
+            <div class="custom-footer-info-container">
+              <a href="#" data-toggle="modal" data-target="#modalCaracteristic">
+                <h2 class="custom-footer-info"><strong>Caractéristiques</strong></h2>
+				<!-- Modal Caracteristic Display here -->
+              </a>
+            </div>
+          </div>
+          <div class="custom-footer-block-section">
+            <div class="custom-footer-image-container">
+              <img class="custom-footer-icon" src="{{ section.settings.iconTwo | img_url: '150x100' }}" alt="iconReturn" />
+            </div>
+            <div class="custom-footer-info-container">
+              <a href="#" data-toggle="modal" data-target="#modalDelivery">
+                <h2 class="custom-footer-info"><strong>Livraisons&retours</strong></h2>
+				<!-- Modal Delivery Display here -->
+              </a>
+            </div>
+          </div>
+          <div class="custom-footer-block-section">
+            <div class="custom-footer-image-container">
+              <img class="custom-footer-icon" src="{{ section.settings.iconThree | img_url: '150x100' }}" alt="iconAvis" />
+            </div>
+            <div class="custom-footer-info-container">
+              <h2 class="custom-footer-info"><a href="div_where_to_scroll"><strong>Avis</strong></a></h2>
+            </div>
+          </div>
+          <div class="custom-footer-block-section">
+            <div class="custom-footer-image-container">
+              <img class="custom-footer-icon" src="{{ section.settings.iconFour | img_url: '150x100' }}" alt="iconQuestions" />
+            </div>
+            <div class="custom-footer-info-container">
+              <h2 class="custom-footer-info"><a href="div_where_to_scroll"><strong>Questions - Réponses</strong></a></h2>
+            </div>
+          </div>
+        </div>      	
+      </div>
+    <hr>
+  </div>
+</section>
+
+{% schema %}
+ {
+    "name": "Product-hero",
+    "settings": [ 
+	{
+      "type": "image_picker",
+      "id": "iconOne",
+      "label": "icon caractéristiques"
+    }, {
+      "type": "image_picker",
+      "id": "iconTwo",
+      "label": "icon livraison"
+    }, {
+      "type": "image_picker",
+      "id": "iconThree",
+      "label": "icon avis"
+    }, {
+      "type": "image_picker",
+      "id": "iconFour",
+      "label": "icon q/a"
+    }
+],
+    "blocks": [],
+    "presets": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

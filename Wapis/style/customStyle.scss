@@ -1,0 +1,70 @@
+// custom footer theme 
+
+html {
+	scroll-behavior: smooth;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+	/* no underline */
+}
+
+.custom-footer-block-padding {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+
+.custom-footer-block-container {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	width: 100%;
+}
+
+.custom-footer-block-global {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.custom-footer-block-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 10px;
+
+}
+
+.custom-footer-info {
+	margin-top: 25px
+}
+
+.modal-title {
+	margin-left: 170px;
+}
+
+@media only screen and (max-width: 749px) {
+	.custom-footer-block-padding {
+		display: flex;
+		justify-content: space-around;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+
+	.custom-footer-block-container {
+		display: flex;
+		justify-content: space-around;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+}
