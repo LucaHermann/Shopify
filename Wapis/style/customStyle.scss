@@ -56,7 +56,6 @@ a {
 }
 
 .custom-footer-info {
-	margin-top: 23px;
 	margin-left: 15px;
 	margin-right: 15px;
 }
@@ -124,3 +123,20 @@ a {
 		margin-left: 100px;
 	}
 }
+
+// video-custom theme
+
+.video-custom-container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	align-items: center;
+}
+
+.video-custom-heading {}
+
+.video-custom-heading-title {}
+
+.video-custom-player-container {}
+
+.video-custom-player-content {}
