@@ -1,17 +1,17 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="[[video__custom]]">
-  <div class="custom-video-padding">
+  <div class="custom-video-padding" style="{{ settings.backgroundColor }}">
     <div class="custom-video-container">
       <div class="custom-video-heading-padding">
         <div class="custom-video-heading-container">
           <div class="custom-video-heading-content-title">
-            <div class="h3" style="color: white">
+            <div class="h3" style="color: {{ settings.titleColor }}">
             	<strong>
             		{{ product.metafields.global.video_title }}
             	</strong>
           	</div>
           </div>
           <div class="custom-video-heading-content-paragraph">
-            <p style="color: white">
+            <p style="color: {{ settings.textColor }}">
               <strong>
                 {{ product.metafields.global.video_subtitle }}
               </strong>
@@ -33,10 +33,30 @@
     </div>
   </div>
 </section>
+
 {% schema %}
  {
     "name": "videoCustom",
-    "settings": [],
+    "settings": [
+	{
+		"id": "titleColor",
+		"type": "text",
+		"label": "Title Color",
+		"default": "white"
+	},
+	{
+		"id": "textColor",
+		"type": "text",
+		"label": "Text Color",
+		"default": "white"
+	},
+	{
+		"id": "backgroundColor",
+		"type": "text",
+		"label": "Background Color",
+		"default": "#49474B"
+	}
+],
     "blocks": [],
     "presets": [
    	  {
