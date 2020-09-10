@@ -1,29 +1,38 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="[[video__custom]]">
-  <div class="video-custom-container">
-    <div class="video-custom-heading">
-      <h2 class="video-custom-heading-title"><strong>{{ product.metafields.global.video_title }}</strong></h2>
-      <p class="video-custom-heading-content">
-        <strong>
- 					{{ product.metafields.global.video_subtitle }}
-        </strong>
-      </p>
-    </div>
-    <div class="video-custom-player-container">
-      <div class="video-custom-player-content">
-		  <iframe class="video-custom-player-iframe" src="{{ product.metafields.global.video_url }}"></iframe>      
+  <div class="custom-video-padding">
+    <div class="custom-video-container">
+      <div class="custom-video-heading-padding">
+        <div class="custom-video-heading-container">
+          <div class="custom-video-heading-content-title">
+            <div class="h3" style="color: white">
+            	<strong>
+            		{{ product.metafields.global.video_title }}
+            	</strong>
+          	</div>
+          </div>
+          <div class="custom-video-heading-content-paragraph">
+            <p style="color: white">
+              <strong>
+                {{ product.metafields.global.video_subtitle }}
+              </strong>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="custom-video-iframe-padding">
+        <div class="custom-video-iframe-container">
+          <iframe class="custom-video-iframe-content" src="{{ product.metafields.global.video_url }}"></iframe>
+<!--   if the client use a private source for the video an note youtube 
+		  <video class="custom-video-iframe-content" controls loop>
+  			<source src="movie.mp4" type="video/mp4">
+  			<source src="movie.ogg" type="video/ogg">
+  			Your browser does not support the video tag.
+		  </video> -->
+        </div>
       </div>
     </div>
-<!--   Use this if video come from the assets 
-	<div class="video-custom-player-container">
-		<div class="video-custon-player-content">
-			<video class="video-custom-player-iframe" controls width="420" height="315">
-      			<source src="" tyoe="video/mp4">
-      		</video>
-		</div>
-    </div> -->
   </div>
 </section>
-
 {% schema %}
  {
     "name": "videoCustom",
