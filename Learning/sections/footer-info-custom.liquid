@@ -1,0 +1,60 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="[[ footer-info-custom ]]">
+  <div class="main-container-padding">
+    <div class="main-container">
+      {% for block in section.blocks %}
+      <div class="block-container">
+        <div class="block-image">
+          <img alt="icon-footer-info" src="{{ block.settings.icon | img_url: '100x100' }}" >
+        </div>
+        <div class="h4 block-heading">
+          {{ block.settings.title }} 
+        </div>
+        <div class="block-info">
+          {{ block.settings.first_info }} 
+        </div>
+        <div class="block-info">
+          {{ block.settings.second_info }} 
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+ 	"name": "footer-info-custom",
+ 	"settings": [],
+ 	"blocks": [
+	{
+ 		"name": "icon_section",
+ 		"type": "image",
+ 		"settings": [{
+ 				"id": "icon",
+ 				"type": "image_picker",
+ 				"label": "Icon info"
+ 			},
+ 			{
+ 				"id": "title",
+ 				"type": "richtext",
+ 				"label": "title info"
+ 			},
+ 			{
+ 				"id": "first_info",
+ 				"type": "richtext",
+ 				"label": "first info"
+ 			},
+ 			{
+ 				"id": "second_info",
+ 				"type": "richtext",
+ 				"label": "second info"
+ 			}
+ 		]
+ 	}
+],
+ 	"presets": [{
+ 		"name": "footer-info-custom",
+ 		"category": "SECTIONS CUSTOM"
+ 	}]
+}
+{% endschema %}

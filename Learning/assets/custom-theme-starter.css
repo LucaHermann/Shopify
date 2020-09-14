@@ -1,8 +1,10 @@
-/* Mobile Display */
-@media only screen and (max-width: 380px) {}
+/* 4k Display */
 
-/* Tablet Display */
+/* Laptop(S,M,L) Display */
+@media only screen and (max-width: 1440px) {}
+
+/* Tablet(S) Display */
 @media only screen and (max-width: 768px) {}
 
-/* Laptop Display */
-@media only screen and (max-width: 1440px) {}
+/* Mobile(S,M,L) Display */
+@media only screen and (max-width: 425px) {}
