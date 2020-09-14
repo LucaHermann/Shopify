@@ -1,0 +1,8 @@
+/* Mobile Display */
+@media only screen and (max-width: 380px) {}
+
+/* Tablet Display */
+@media only screen and (max-width: 768px) {}
+
+/* Laptop Display */
+@media only screen and (max-width: 1440px) {}
