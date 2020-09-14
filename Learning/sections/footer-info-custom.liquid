@@ -1,18 +1,18 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="[[ footer-info-custom ]]">
-  <div class="main-container-padding">
-    <div class="main-container">
+  <div class="fic__main-container-padding">
+    <div class="fic__main-container">
       {% for block in section.blocks %}
-      <div class="block-container">
-        <div class="block-image">
-          <img alt="icon-footer-info" src="{{ block.settings.icon | img_url: '100x100' }}" >
+      <div class="fic__block-container">
+        <div class="fic__block-image">
+          <img alt="fic__icon-footer-info" src="{{ block.settings.icon | img_url: '100x100' }}" >
         </div>
-        <div class="h4 block-heading">
-          {{ block.settings.title }} 
+        <div class="h4 fic__block-heading">
+          {{ block.settings.heading }} 
         </div>
-        <div class="block-info">
+        <div class="fic__block-info">
           {{ block.settings.first_info }} 
         </div>
-        <div class="block-info">
+        <div class="fic__block-info">
           {{ block.settings.second_info }} 
         </div>
       </div>
@@ -27,7 +27,7 @@
  	"settings": [],
  	"blocks": [
 	{
- 		"name": "icon_section",
+ 		"name": "icon text section",
  		"type": "image",
  		"settings": [{
  				"id": "icon",
@@ -35,9 +35,9 @@
  				"label": "Icon info"
  			},
  			{
- 				"id": "title",
+ 				"id": "heading",
  				"type": "richtext",
- 				"label": "title info"
+ 				"label": "heading info"
  			},
  			{
  				"id": "first_info",

@@ -1,143 +1,162 @@
 /* footer-info-custom */
 
-/* Default display */
-.main-container-padding {
+/* 4k Display */
+.fic__main-container-padding {
 	padding-left: 35px;
 	padding-right: 35px;
 }
 
-.main-container {
+.fic__main-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	width: 100%;
 }
 
-.block-container {
+.fic__block-container {
 	margin: 10px 15px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.block-image {
+.fic__block-image {
 	padding: 5px;
 }
 
-.block-heading {
+.fic__block-heading {
 	padding: 2px;
 	text-align: center;
 }
 
-.block-info {
+.fic__block-info {
 	padding: 2px;
 	text-align: center;
 }
 
-/* Laptop Display */
+/* Laptop(S,M,L) Tablet(L) Display */
 @media only screen and (max-width: 1440px) {
-	.main-container-padding {
+	.fic__main-container-padding {
 		padding-left: 20px;
 		padding-right: 20px;
 	}
 
-	.main-container {
+	.fic__main-container {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
 		width: 100%;
 	}
 
-	.block-container {
+	.fic__block-container {
 		margin: 10px 15px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
-	.block-image {
+	.fic__block-image {
 		padding: 5px;
 	}
 
-	.block-heading {
+	.fic__block-heading {
 		padding: 2px;
 		text-align: center;
 	}
 
-	.block-info {
+	.fic__block-info {
 		padding: 1px;
 		text-align: center;
 	}
 }
 
-/* Tablet Display */
+/* Tablet(S) Display */
 @media only screen and (max-width: 768px) {
-	.main-container-padding {
+	.fic__main-container-padding {
 		padding-left: 20px;
 		padding-right: 20px;
 	}
 
-	.main-container {
+	.fic__main-container {
 		display: flex;
 		flex-direction: row;
 		align-items: flex-start;
 		width: 100%;
 	}
 
-	.block-container {
+	.fic__block-container {
 		margin: 5px 15px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
-	.block-image {
+	.fic__block-image {
 		padding: 2px;
 	}
 
-	.block-heading {
+	.fic__block-heading {
 		padding: 2px;
 		text-align: center;
 	}
 
-	.block-info {
+	.fic__block-info {
 		padding: 1px;
 		text-align: center;
 	}
 }
 
-/* Mobile Display */
+/* Mobile(S,M,L) Display */
 @media only screen and (max-width: 425px) {
-	.main-container-padding {
+	.fic__main-container-padding {
 		padding-left: 20px;
 		padding-right: 20px;
 	}
 
-	.main-container {
+	.fic__main-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		width: 100%;
 	}
 
-	.block-container {
+	.fic__block-container {
 		margin: 5px 15px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
-	.block-image {
+	.fic__block-image {
 		padding: 2px;
 	}
 
-	.block-heading {
+	.fic__block-heading {
 		padding: 1px;
 		text-align: center;
 	}
 
-	.block-info {
+	.fic__block-info {
 		padding: 1px;
 		text-align: center;
 	}
+}
+
+/* image-text-custom */
+
+/* 4k Display */
+
+/* Laptop(S,M,L) Display */
+@media only screen and (max-width: 1440px) {}
+
+/* Tablet(S) Display */
+@media only screen and (max-width: 768px) {}
+
+/* Mobile(S,M,L) Display */
+@media only screen and (max-width: 425px) {
+	.itc__main-container-padding {}
+
+	.itc__main-container {}
+
+	.itc__block-container {}
 }
