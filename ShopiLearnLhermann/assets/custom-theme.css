@@ -308,3 +308,88 @@
 		margin: 1px;
 	}
 }
+
+/* yt-video-custom */
+
+/* 4k Display */
+
+.ytvc__main-container-padding {}
+
+.ytvc__main-container {}
+
+.ytvc__main-container-padding {}
+
+.ytvc__heading-block-container {}
+
+.ytvc__heading {}
+
+.ytvc__paragraph-block-container {}
+
+.ytvc__paragraph {}
+
+.ytvc__yt-iframe-block-container {}
+
+.ytvc__yt-ifram {}
+
+/* Laptop(S,M,L) Display */
+@media only screen and (max-width: 1440px) {
+	.ytvc__main-container-padding {}
+
+	.ytvc__main-container {}
+
+	.ytvc__main-container-padding {}
+
+	.ytvc__heading-block-container {}
+
+	.ytvc__heading {}
+
+	.ytvc__paragraph-block-container {}
+
+	.ytvc__paragraph {}
+
+	.ytvc__yt-iframe-block-container {}
+
+	.ytvc__yt-ifram {}
+}
+
+/* Tablet(S) Display */
+@media only screen and (max-width: 768px) {
+	.ytvc__main-container-padding {}
+
+	.ytvc__main-container {}
+
+	.ytvc__main-container-padding {}
+
+	.ytvc__heading-block-container {}
+
+	.ytvc__heading {}
+
+	.ytvc__paragraph-block-container {}
+
+	.ytvc__paragraph {}
+
+	.ytvc__yt-iframe-block-container {}
+
+	.ytvc__yt-ifram {}
+}
+
+/* Mobile(S,M,L) Display */
+@media only screen and (max-width: 425px) {
+	.ytvc__main-container-padding {}
+
+	.ytvc__main-container {}
+
+	.ytvc__main-container-padding {}
+
+	.ytvc__heading-block-container {}
+
+	.ytvc__heading {}
+
+	.ytvc__paragraph-block-container {}
+
+	.ytvc__paragraph {}
+
+	.ytvc__yt-iframe-block-container {}
+
+	.ytvc__yt-ifram {}
+}

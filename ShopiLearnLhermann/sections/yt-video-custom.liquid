@@ -1,0 +1,67 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="[[yt-video-custom]]">
+  <div class="ytvc__main-container-padding">
+    <div class="ytvc__main-container">
+      <div class="ytvc__heading-block-container">
+        <div class="ytvc__heading">
+          {{ section.settings.heading }}
+          <div class="ytvc__paragraph-block-container">
+            <div class="ytvc__paragraph">
+              {{ section.settings.paragraph }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ytvc__yt-iframe-block-container">
+        <div class="ytvc__yt-iframe">
+          <iframe 
+            width="560" 
+            height="315"
+            src="https://www.youtube.com/embed/JXYNYzaGIns"
+            frameborder="0"
+           	allow="accelerometer;
+           	  autoplay; 
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture"
+           	allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+ {
+    "name": "yt-video-custom",
+    "settings": [{
+ 				"id": "heading",
+ 				"type": "richtext",
+ 				"label": "text"
+ 			},
+ 			{
+ 				"id": "paragraph",
+ 				"type": "richtext",
+ 				"label": "paragraph"
+ 			},
+ 			{
+ 				"id": "iframeEmbed",
+ 				"type": "richtext",
+ 				"label": "iframe embed"
+ 			}
+ 		],
+    "blocks": [],
+    "presets": [
+   	  {
+    	"name": "yt-video-custom",
+   		 "category": "SECTIONS CUSTOM"
+  	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
