@@ -1,29 +1,70 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="[[ image-text-custom ]]">
+  {% for block in section.blocks %}
   <div class="itc__main-container-padding">
-    <div class="itc__main-container">
-      <div class="itc__block-container">
-        <h1>Hello World !</h1>
+    <div class="itc__main-container" style="flex-direction: {{ block.settings.css_selector }}">
+        <div class="itc__image-block-container">
+          <div class="itc__image">
+          	<img alt="itc__image-custom" src="{{ block.settings.image | img_url: 'master' }}" >
+          </div>
+        </div>
+        <div class="itc__text-block-container">
+          <div class="h3">
+            {{ block.settings.heading }}
+          </div>
+          <div class="itc__paragraph">
+          	{{ block.settings.paragraph }}
+          </div>
+        </div>
       </div>
-    </div>
   </div>
+  {% endfor %}
 </section>
 
 {% schema %}
- {
-    "name": "image-text-custom",
-    "settings": [],
-    "blocks": [],
-    "presets": [
-   	  {
-    	"name": "image-text-custom",
-   		 "category": "SECTIONS CUSTOM"
-  	  }
-    ]
-  }
+{
+	"name": "image-text-custom",
+	"settings": [],
+	"blocks": [{
+		"name": "image text custom",
+		"type": "image",
+		"settings": [{
+				"id": "image",
+				"type": "image_picker",
+				"label": "image selection"
+			},
+			{
+				"id": "css_selector",
+				"type": "select",
+				"options": [{
+						"group": "value",
+						"label": "right",
+						"value": "row-reverse"
+					},
+					{
+						"group": "value",
+						"label": "left",
+						"value": "row"
+					}
+				],
+				"label": "image allignment",
+				"default": "row",
+				"info": "text"
+			},
+			{
+				"id": "heading",
+				"type": "richtext",
+				"label": "heading"
+			},
+			{
+				"id": "paragraph",
+				"type": "richtext",
+				"label": "paragraph"
+			}
+		]
+	}],
+	"presets": [{
+		"name": "image-text-custom",
+		"category": "SECTIONS CUSTOM"
+	}]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
