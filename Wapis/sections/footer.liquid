@@ -1,0 +1,407 @@
+<footer class="site-footer" data-section-type="footer" data-section-id="{{ section.id }}">
+	<div class="container" style="background-color: {{ section.settings.backgroundColor }}; color: black;">
+
+		{% comment %} Footer top - logo, menus, text, newsletter {% endcomment %}
+		<div class="footer-inner">
+			{%- if section.blocks.size > 0 -%}
+				<div class="footer__blocks footer__blocks--{{ section.blocks.size }}">
+
+					{%- for block in section.blocks -%}
+						{%- assign mobile_hide_block = block.settings.mobile_hide_block -%}
+
+						{%- case block.type -%}
+						{%- when 'logo' -%}
+							<div class="footer__block footer__block--logo {% if mobile_hide_block %}med_hide{% endif %}" {{ block.shopify_attributes }}>
+								{%- if block.settings.logo -%}
+									<a href="{{ routes.root_url }}" class="footer__logo">
+										{%- assign image = block.settings.logo -%}
+										{%- assign image_widths = '295,394,590,700,800,1000,1200,1500,1800,2000,2400' -%}
+										{%- include 'theme-rias' -%}
+										<img
+											class="lazyload"
+											src="{{ 'blank.gif' | asset_img_url: '1x1' }}"
+											data-src="{{ image_url_pattern }}"
+											data-widths= "[{{ image_widths }}]"
+											data-aspectratio="{{ image.aspect_ratio }}"
+											data-sizes="auto"
+											width="{{ block.settings.logo_width }}"
+											alt="{{ shop.name }}">
+										<noscript>
+											<img width="{{ block.settings.logo_width }}" src="{{ block.settings.logo | img_url: '360x' }}" title="{{ shop.name }}">
+										</noscript>
+									</a>
+								{%- else -%}
+									<div class="placeholder-wrapper--footer" style="width: {{ block.settings.logo_width | append: 'px' }};">
+										<div class="footer__logo--placeholder">
+											{{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+										</div>
+									</div>
+								{%- endif -%}
+							</div>
+
+							{%- when 'menu' -%}
+								{%- assign menu = block.settings.menu -%}
+								{%- assign title = block.settings.title -%}
+								<div class="footer__block footer__block--menus {% if mobile_hide_block %}med_hide{% endif %}" {{ block.shopify_attributes }} style="max-width: 30%">
+									{%- if menu != blank or title != blank -%}
+									<div class="footer__block-menu" >
+										{%- if title != blank -%}
+											<p class="footer__block-title" style="font-weight: 700;">{{ title }}</p>
+										{%- endif -%}
+
+									<!-- {%- if menu != blank -%}
+											<ul>
+												{%- for link in linklists[menu].links -%}
+													<li class="footer__block-menu-link">
+														<a href="{{ link.url }}">{{ link.title }}</a>
+													</li>
+												{%- endfor -%}
+											</ul>
+										{%- endif -%} -->
+									</div>
+                                  	<div class="footer__block-menu-info-container">
+                                      <p class="footer__block-menu-info-paragraph">
+                                        <span>02 51 33 14 33</span>
+                                        <!-- Espace -->
+                                        	&nbsp;
+										<!-- Black circle -->
+                                        	&#9679;
+										<!-- Espace -->
+                                        	&nbsp;
+                                        <span> contact@sunology.eu</span>
+                                      </p>
+                                  	</div>
+                                  	<hr>
+                                  	<div class="footer__block-menu-socialmedia-container">
+                                      <div class="footer__block-menu-socialmedia">
+                                      	{%- if
+                                            settings.twitter_url != '' or
+                                            settings.facebook_url != '' or
+                                            settings.instagram_url != '' or
+                                            settings.pinterest_url != '' or
+                                            settings.youtube_url != '' or
+                                            settings.tumblr_url != '' or
+                                            settings.rss_url != ''
+                                        -%}
+                                        <div class="footer__social">
+                                            <ul class="social-links social-links--footer">
+                                                {%- if settings.twitter_url != '' -%}
+                                                    <li>
+                                                        <a href="{{settings.twitter_url}}" target="_blank" class="social-link">
+                                                            {%- include 'icon-twitter' -%}
+                                                            <span class="fallback-text">{{ 'general.footer.twitter' | t }}</span>
+                                                        </a>
+                                                    </li>
+                                                {%- endif -%}
+                                                {%- if settings.facebook_url != '' -%}
+                                                    <li>
+                                                        <a href="{{settings.facebook_url}}" target="_blank" class="social-link">
+                                                            {%- include 'icon-facebook' -%}
+                                                            <span class="fallback-text">{{ 'general.footer.facebook' | t }}</span>
+                                                        </a>
+                                                    </li>
+                                                {%- endif -%}
+                                                {%- if settings.instagram_url != '' -%}
+                                                    <li>
+                                                        <a href="{{settings.instagram_url}}" target="_blank" class="social-link">
+                                                            {%- include 'icon-instagram' -%}
+                                                            <span class="fallback-text">{{ 'general.footer.instagram' | t }}</span>
+                                                        </a>
+                                                    </li>
+                                                {%- endif -%}
+                                                {%- if settings.pinterest_url != '' -%}
+                                                    <li>
+                                                        <a href="{{settings.pinterest_url}}" target="_blank" class="social-link">
+                                                            {%- include 'icon-pinterest' -%}
+                                                            <span class="fallback-text">{{ 'general.footer.pinterest' | t }}</span>
+                                                        </a>
+                                                    </li>
+                                                {%- endif -%}
+                                                {%- if settings.youtube_url != '' -%}
+                                                    <li>
+                                                        <a href="{{settings.youtube_url}}" target="_blank" class="social-link">
+                                                            {%- include 'icon-youtube' -%}
+                                                            <span class="fallback-text">{{ 'general.footer.youtube' | t }}</span>
+                                                        </a>
+                                                    </li>
+                                                {%- endif -%}
+                                                {%- if settings.tumblr_url != '' -%}
+                                                    <li>
+                                                        <a href="{{settings.tumblr_url}}" target="_blank" class="social-link">
+                                                            {%- include 'icon-tumblr' -%}
+                                                            <span class="fallback-text">{{ 'general.footer.tumblr' | t }}</span>
+                                                        </a>
+                                                    </li>
+                                                {%- endif -%}
+                                                {%- if settings.rss_url != '' -%}
+                                                    <li>
+                                                        <a href="{{settings.rss_url}}" target="_blank" class="social-link">
+                                                            {%- include 'icon-rss' -%}
+                                                            <span class="fallback-text">{{ 'general.footer.rss' | t }}</span>
+                                                        </a>
+                                                    </li>
+                                                {%- endif -%}
+                                            </ul>
+                                        </div>
+                                        {%- endif -%}
+                                      </div>
+                                  	</div>
+									{%- endif -%}
+								</div>
+
+							{%- when 'text' -%}
+								<div class="footer__block footer__block--text {% if mobile_hide_block %}med_hide{% endif %}" {{ block.shopify_attributes }}>
+									{%- assign title = block.settings.title -%}
+									{%- assign text = block.settings.text -%}
+									{%- if text != blank -%}
+										{%- if title != blank -%}
+											<p class="footer__block-title" style="font-weight: 700;">{{ title }}</p>
+										{%- endif -%}
+
+										{%- if text != blank -%}
+											<div class="footer__block-text" >{{ text }}</div>
+										{%- endif -%}
+									{%- endif -%}
+								</div>
+
+							{%- when 'newsletter' -%}
+								<div class="footer__block footer__block--newsletter {% if mobile_hide_block %}med_hide{% endif %}" {{ block.shopify_attributes }}>
+									{%- assign show_newsletter = true -%}
+									{%- assign title = block.settings.title -%}
+									{%- assign content = block.settings.content -%}
+
+									{%- if title != blank -%}
+										<p class="footer__block-title" style="font-weight: 700;">{{ title }}</p>
+									{%- endif -%}
+
+									{%- if content != blank -%}
+										<p class="footer__block-text">{{ content }}</p>
+									{%- endif -%}
+
+									{%- include 'newsletter' -%}
+								</div>
+
+						{%- endcase -%}
+					{%- endfor -%}
+				</div>
+			{%- endif -%}
+
+		</div>
+	</div>
+
+	{% comment %} Bottom bar - Payment icons, text, copyright, social icons, menu {% endcomment %}
+	{%- assign footer_text = section.settings.text -%}
+	{%- assign menu = section.settings.menu -%}
+	{%- assign show_social_icons = section.settings.show_social_icons -%}
+
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row">
+
+				<div class="footer-bottom__right">
+					{%- include 'cross-border' -%}
+
+					{%- if show_social_icons or menu -%}
+
+						{%- if show_social_icons -%}
+							{%- include 'social-links' -%}
+						{%- endif -%}
+
+						{%- if menu -%}
+							{%- if linklists[menu].links != empty -%}
+								<div class="footer__menu">
+									<ul>
+										{%- for link in linklists[menu].links -%}
+											<li class="footer-link">
+												<a href="{{ link.url }}">{{ link.title }}</a>
+											</li>
+										{%- endfor -%}
+									</ul>
+								</div>
+							{%- endif -%}
+						{%- endif -%}
+					{%- endif -%}
+				</div>
+
+				<div class="footer-bottom__left">
+					{%- if section.settings.show_payment_icons -%}
+						<div class="footer__payment">
+							{%- include 'payment-icons' -%}
+						</div>
+					{%- endif -%}
+
+					<div class="footer__text">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</div>
+
+					<div class="footer__copyright">
+						<p>{{ powered_by_link }}</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</footer>
+
+{% schema %}
+{
+	"name": "Footer",
+	"max_blocks": 5,
+	"settings": [
+		{
+			"type": "header",
+			"content": "Bottom bar"
+		},
+		{
+			"type": "checkbox",
+			"id": "show_payment_icons",
+			"label": "Show payment icons",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "show_social_icons",
+			"label": "Show social icons",
+			"default": true
+		},
+		{
+			"type": "link_list",
+			"id": "menu",
+			"label": "Choose Menu",
+			"default": "footer",
+			"info": "This menu won't show dropdown items"
+		},
+		{
+			"type": "header",
+			"content": "language selector",
+			"info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+		},
+		{
+			"type": "checkbox",
+			"id": "show_locale_selector",
+			"label": "Show language selector",
+			"default": true
+		},
+		{
+			"type": "header",
+			"content": "Currency selector",
+			"info": "To add a currency, go to your [currency settings.](/admin/settings/payments)"
+		},
+		{
+			"type": "checkbox",
+			"id": "show_currency_selector",
+			"label": "Show currency selector",
+			"default": true
+		},
+		{
+			"type": "text",
+			"id": "backgroundColor",
+			"label": "backgroundColor",
+			"default": "#ffef60"
+		}
+	],
+	"blocks": [
+		{
+			"type": "logo",
+			"name": "Logo",
+			"limit": 1,
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "logo",
+					"label": "Logo"
+				},
+				{
+					"type": "range",
+					"id": "logo_width",
+					"min": 60,
+					"max": 180,
+					"step": 10,
+					"unit": "px",
+					"label": "Logo width",
+					"default": 150
+				},
+				{
+					"type": "checkbox",
+					"id": "mobile_hide_block",
+					"label": "Hide block on mobile",
+					"default": false
+				}
+			]
+		},
+		{
+			"type": "menu",
+			"name": "Menu",
+			"limit": 5,
+			"settings": [
+				{
+					"type": "link_list",
+					"id": "menu",
+					"default":"main-menu",
+					"label": "Choose Menu",
+					"info": "This menu won't show dropdown items"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Heading"
+				},
+				{
+					"type": "checkbox",
+					"id": "mobile_hide_block",
+					"label": "Hide block on mobile",
+					"default": false
+				}
+			]
+		},
+		{
+			"type": "text",
+			"name": "Text",
+			"limit": 5,
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title",
+					"default": "Information"
+				},
+				{
+					"type": "richtext",
+					"id": "text",
+					"label": "Text",
+					"default":"<p>This text block is a great place to discuss shipping policies, or terms and conditions info.</p>"
+				},
+				{
+					"type": "checkbox",
+					"id": "mobile_hide_block",
+					"label": "Hide block on mobile",
+					"default": false
+				}
+			]
+		},
+		{
+			"type": "newsletter",
+			"name": "Newsletter",
+			"limit": 1,
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Heading",
+					"default": "NEWSLETTER"
+				},
+				{
+					"type": "richtext",
+					"id": "content",
+					"label": "Text"
+				},
+				{
+					"type": "checkbox",
+					"id": "mobile_hide_block",
+					"label": "Hide block on mobile",
+					"default": false
+				}
+			]
+		}
+	]
+}
+{% endschema %}
