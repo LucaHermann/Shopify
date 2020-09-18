@@ -10,6 +10,7 @@
 						{%- assign mobile_hide_block = block.settings.mobile_hide_block -%}
 
 						{%- case block.type -%}
+                  
 						{%- when 'logo' -%}
 							<div class="footer__block footer__block--logo {% if mobile_hide_block %}med_hide{% endif %}" {{ block.shopify_attributes }}>
 								{%- if block.settings.logo -%}
@@ -180,22 +181,38 @@
 
 									{%- include 'newsletter' -%}
 								</div>
-
+                  
 						{%- endcase -%}
 					{%- endfor -%}
 				</div>
 			{%- endif -%}
-
 		</div>
-	</div>
+  	</div>
 
 	{% comment %} Bottom bar - Payment icons, text, copyright, social icons, menu {% endcomment %}
 	{%- assign footer_text = section.settings.text -%}
 	{%- assign menu = section.settings.menu -%}
 	{%- assign show_social_icons = section.settings.show_social_icons -%}
 
+  
 	<div class="footer-bottom">
 		<div class="container">
+            <div class="footer__blocks footer__blocks--2" style="padding: 0px 13px;">
+                <div class="footer__block footer__block--marketplace" style="padding: 0px; color: black;max-width: 30%">
+                  <p class="footer__block-title" style="font-weight: 700;">MARKETPLACE</p>
+                    <hr>
+                      <p class="footer__block-text">{{ section.settings.marketplaceContent }}</p>
+                </div>
+              	<div style="padding-left: 17%; color: black;max-width: 30%">
+                  <p class="footer__block-title" style="font-weight: 700;">ESHOP</p>
+                    <hr style="width: 215px">
+                      <p class="footer__block-text">{{ section.settings.eshopContent1 }}</p>
+                </div>
+              	<div style="padding-left: 33%; color: black;max-width: 50%;padding-top: 5%">
+                  <p class="footer__block-text">{{ section.settings.eshopContent2 }}</p>
+                  <div><strong>Sunology 2020</strong>&copy;</div>
+                </div>
+          </div>
 			<div class="row">
 
 				<div class="footer-bottom__right">
@@ -246,8 +263,7 @@
 {
 	"name": "Footer",
 	"max_blocks": 5,
-	"settings": [
-		{
+	"settings": [{
 			"type": "header",
 			"content": "Bottom bar"
 		},
@@ -297,15 +313,31 @@
 			"id": "backgroundColor",
 			"label": "backgroundColor",
 			"default": "#ffef60"
+		},
+		{
+			"type": "richtext",
+			"id": "marketplaceContent",
+			"label": "marketplace content",
+			"default": "<p>blank</p>"
+		},
+		{
+			"type": "richtext",
+			"id": "eshopContent1",
+			"label": "eshop first content",
+			"default": "<p>blank</p>"
+		},
+		{
+			"type": "richtext",
+			"id": "eshopContent2",
+			"label": "eshop second content",
+			"default": "<p>blank</p>"
 		}
 	],
-	"blocks": [
-		{
+	"blocks": [{
 			"type": "logo",
 			"name": "Logo",
 			"limit": 1,
-			"settings": [
-				{
+			"settings": [{
 					"type": "image_picker",
 					"id": "logo",
 					"label": "Logo"
@@ -332,11 +364,10 @@
 			"type": "menu",
 			"name": "Menu",
 			"limit": 5,
-			"settings": [
-				{
+			"settings": [{
 					"type": "link_list",
 					"id": "menu",
-					"default":"main-menu",
+					"default": "main-menu",
 					"label": "Choose Menu",
 					"info": "This menu won't show dropdown items"
 				},
@@ -357,8 +388,7 @@
 			"type": "text",
 			"name": "Text",
 			"limit": 5,
-			"settings": [
-				{
+			"settings": [{
 					"type": "text",
 					"id": "title",
 					"label": "Title",
@@ -368,7 +398,7 @@
 					"type": "richtext",
 					"id": "text",
 					"label": "Text",
-					"default":"<p>This text block is a great place to discuss shipping policies, or terms and conditions info.</p>"
+					"default": "<p>This text block is a great place to discuss shipping policies, or terms and conditions info.</p>"
 				},
 				{
 					"type": "checkbox",
@@ -382,8 +412,7 @@
 			"type": "newsletter",
 			"name": "Newsletter",
 			"limit": 1,
-			"settings": [
-				{
+			"settings": [{
 					"type": "text",
 					"id": "title",
 					"label": "Heading",
