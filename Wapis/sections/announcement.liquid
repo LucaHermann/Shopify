@@ -1,0 +1,46 @@
+{%- if section.settings.show_announcement -%}
+<div class="js-siteAlert siteAlert container-wrap" data-status="{{ section.settings.show_announcement }}" data-status-mobile="{{ section.settings.show_announcement_on_mobile }}" data-scroll-lock-fill-gap style="background-color: #ffef60;">
+	<div class="container u-center" style="padding: 10px 40px;">
+		<div class="row u-center">
+			<div class="block u-center" style="color: black">
+				{%- if section.settings.link!= blank -%}
+				<a href="{{ section.settings.link }}" tabindex="0">
+				{%- endif -%}
+                  <span class="alert-title h4" style="color: black;font-family: roboto;">Livraison gratuite à partir de 50€</span>
+				{%- if section.settings.link!= blank -%}
+				</a>
+				{%- endif -%}
+			</div>
+		</div>
+	</div>
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Announcement",
+	"settings": [
+		{
+			"type": "header",
+			"content": "Announcement bar"
+		},
+		{
+			"type": "checkbox",
+			"id": "show_announcement",
+			"label": "Show announcement",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "show_announcement_on_mobile",
+			"label": "Show on mobile",
+			"default": true
+		},
+		{
+			"type": "url",
+			"id": "link",
+			"label": "Link"
+		}
+	]
+}
+{% endschema %}
