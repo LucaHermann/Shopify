@@ -41,25 +41,30 @@
 						<a id="shopName" class="main-logo__text" href="{{ routes.root_url }}" itemprop="url">{{ shop_name }}</a>
 					{%- endif -%}
 				</h1>
-			{%- endif -%}
+     
 
 			<div class="header-fix-cont">
 				<div class="header-fix-cont-inner">
+                  
 					<nav role="navigation" class="nav-standard nav-main">
-						{%- assign is_hamburger_nav = false -%}
+                      
+          {%- assign is_hamburger_nav = false -%}
 						{%- include 'navigation' -%}
 
 						{%- if settings.show_search -%}
 							{%- include 'nav-search' -%}
 						{%- endif -%}
 					</nav>
-
-					<div class="header-icons">
-                         {%- if settings.show_search -%}
+                  
+                  	<div class="header-icons">
+                      
+                      	{%- if settings.show_search -%}
 							<a href="#" class="nav-item searchToggle js-searchToggle js-searchToggle--open" data-search-nav=".nav-standard" aria-expanded="false">
-							 	{%- include 'icon-search' -%}
+								{%- include 'icon-search' -%}
 							</a>
 						{%- endif -%}
+						{%- endif -%}
+                      
 						<a href="#menu" class="js-menuToggle menuToggle" data-target="nav" aria-expanded="false">
 							<div id="hamburger-menu" class="icon-menu">
 								<div class="diamond-bar"></div>
@@ -70,10 +75,22 @@
 						{%- if shop.customer_accounts_enabled -%}
 							<a href="{{ routes.account_url }}" class="nav-item nav-item-fixed nav-account-link {% unless settings.show_search %}nav-account-link--no-search{% endunless %}">{% include 'icon-user' %}</a>
 						{%- endif -%}
-
-						
-
-						<a id="cartTotal" href="{{ routes.cart_url }}" aria-label="{{ 'cart.labels.items_added' | t }}" class="nav-item nav-item-fixed js-cartToggle cartToggle{% if cart.item_count == 0 %} cartToggle--empty{% endif %}" aria-expanded="false">
+                      
+                      <a class="nav-phoneIcon">
+                        <img class="nav-item nav-item-fixed" src="{{ 'telephone.png' | asset_img_url }}">
+                      </a>
+                      <a class="nav-phoneNumber">
+                      	<p>02 52 33 14 33</p>
+                      </a>
+                      <a class="nav-userIcon">
+                        <img class="nav-item nav-item-fixed" src="{{ 'user.png' | asset_img_url }}">
+                      </a>
+                      <a class="nav-favouriteIcon">
+                       	<img class="nav-item nav-item-fixed" src="{{ 'star.png' | asset_img_url }}">
+                      </a>
+                     
+                      
+                      	<a id="cartTotal" href="{{ routes.cart_url }}" aria-label="{{ 'cart.labels.items_added' | t }}" class="nav-item nav-item-fixed js-cartToggle cartToggle{% if cart.item_count == 0 %} cartToggle--empty{% endif %}" aria-expanded="false">
 							{%- if settings.cart_icon == 'cart' -%}
 								{%- include 'icon-cart' -%}
 							{%- else -%}
@@ -82,6 +99,7 @@
 							{%- endif -%}
 						</a>
 					</div>
+                  
 				</div>
 			</div>
 		</div>
