@@ -7,59 +7,209 @@
 				<header class="form__header--bgImg"
 					style="background-image: url({{ section.settings.image | img_url: 'master' }})">
 					<div class="grid grid--center form__grid">
-						<div class="form__wrapper">
-							<div class="form__wrapper--container">
-								<div class="form__main--title">
-									<h1>Rejoignez le mouvement de l’écologie hédoniste en 2 minutes</h1>
+						<div class="form__wrapper rowCustom">
+							<div class="1/2 1/2--pocket 1/2--thumb grid__cell--center form__heading--container">
+								<div class="form__heading--title">
+									<h1 class="form__heading--h1">Rejoignez le mouvement de l’écologie hédoniste en 2 minutes</h1>
 								</div>
-								<div>
-									<div class="contact-form">
-										{%- form 'contact' -%}
+							</div>
+							<div class="1/2 1/2--pocket 1/2--thumb grid__cell--center  form__form--wrapper">
+								<div class="form__form--main">
+									{%- form 'contact' -%}
 
-										{%- if form.posted_successfully? -%}
-										<div class="successForm feedback">
-											<p>{{ 'contact.form.submit_success' | t }}</p>
-										</div>
+									{%- if form.posted_successfully? -%}
+									<div class="form__form--successForm successForm feedback">
+										<p>{{ 'contact.form.submit_success' | t }}</p>
+									</div>
 
-										{%- else -%}
+									{%- else -%}
 
-										{%- if form.errors -%}
-										<div class="feedback error p">
-											{{ form.errors | default_errors }}
-										</div>
-										{%- endif -%}
+									{%- if form.errors -%}
+									<div class="form__form--errorForm feedback error p">
+										{{ form.errors | default_errors }}
+									</div>
+									{%- endif -%}
 
-										<div id="contactFormWrapper">
-											<div class="form-step">Étape 1 sur 4</div>
-											<div class="form-title">Vous aussi, devenez Conseiller Sunology®</div>
-											<div class="form-content">
-												<div class="form-field">
-													<label for="Form-{{ section.id }}-name">{{ 'contact.form.name_field' | t }}</label>
-													<input type="text" class="contactFormText" id="Form-{{ section.id }}-name"
-														name="contact[name]" autocapitalize="words" value="" />
+									<form id="form__form--contactWrapper" class="form__form--contactWrapper">
+										<div class="form__form--stepform" id="form__form--stepForm-0">
+
+											<div class="form__form--contactStep">Étape 1 sur 4</div>
+											<div class="form__form--contactTitle">Vous aussi, devenez Conseiller Sunology®</div>
+
+											<div class="form__form--contactContent">
+												<p class="form__form--coordContent">Vos coordonnées</p>
+
+												<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
+													<span class="form__form--spanCivility">Civilité *</span>
+													<div class="rowCustom">
+														<div class="1/2 1/2--thumb 1/2--pocket grid__cell form__form--radioContainer">
+															<label class="form__form--radio" for="form__form--genderF">
+																Madame
+
+																<input class="form__form--radioInput" type="radio" id="form__form--genderF"
+																	name="form__form--gender" value="Madame">
+																<span class="form__form--checkmark" for="form__form--genderF"></span>
+															</label>
+														</div>
+														<div class="1/2 1/2--thumb 1/2--pocket grid__cell form__form--radioContainer">
+															<label class="form__form--radio" for="form__form--genderM">
+																Monsieur
+
+																<input class="form__form--radioInput" type="radio" id="form__form--genderM"
+																	name="form__form--gender" value="Monsieur">
+																<span class="form__form--checkmark" for="form__form--genderM"></span>
+															</label>
+														</div>
+													</div>
 												</div>
 
-												<div class="form-field">
-													<label for="Form-{{ section.id }}-email">{{ 'contact.form.email_field' | t }}</label>
-													<input type="email" class="contactFormEmail" id="Form-{{ section.id }}-email"
-														name="contact[email]" autocorrect="off" autocapitalize="off" />
+												<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
+													<label class="form__form--labelEmpty" for="form__form--firstname">Prénom *</label>
+													<input type="text" id="form__form--firstnameInput" name="form__form--firstnameInput"
+														class="form__form--input" value required>
+													<div class="form__form--invalidFeedback">Veuillez saisir votre prénom.</div>
 												</div>
 
-												<div class="form-field">
-													<label for="Form-{{ section.id }}-body">{{ 'contact.form.message_field' | t }}</label>
-													<textarea rows="10" id="Form-{{ section.id }}-body" class="contactFormMessage"
-														name="contact[body]"></textarea>
+												<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
+													<label class="form__form--labelEmpty" for="form__form--lastname">Nom *</label>
+													<input type="text" id="form__form--lastnameInput" name="form__form--lastnameInput"
+														class="form__form--input" value required>
+													<div class="form__form--invalidFeedback">Veuillez saisir votre nom.</div>
 												</div>
 
-												<div>
-													<input type="submit" id="contactFormSubmit" class="button"
-														value="{{ 'contact.form.submit_button' | t }}" />
+												<div class="3/3 3/3--thumb 3/3--pocket grid--right form__form--buttonWrapper">
+													<a href="" class="button button--primary form__form--button" aria-label="SUVANT"
+														title="SUIVANT">
+														{% include 'icon-arrow-slider' %}
+														SUIVANT</a>
 												</div>
 											</div>
 										</div>
-										{%- endif -%}
-										{%- endform -%}
-									</div>
+										<div class="form__form--stepform" id="form__form--stepForm-1">
+
+											<div class="form__form--contactStep">Étape 2 sur 4</div>
+											<div class="form__form--contactTitle">Vous aussi, devenez Conseiller Sunology®</div>
+
+											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
+												<label class="form__form--labelEmpty" for="form__form--streetnumber">Numéro de rue</label>
+												<input type="text" id="form__form--streetnumberInput" name="form__form--streetnumberInput"
+													class="form__form--input" value>
+											</div>
+
+											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
+												<label class="form__form--labelEmpty" for="form__form--street">Rue *</label>
+												<input type="text" id="form__form--streetInput" name="form__form--streetInput"
+													class="form__form--input" value required>
+												<div class="form__form--invalidFeedback">Veuillez saisir votre rue.</div>
+											</div>
+
+											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
+												<label class="form__form--labelEmpty" for="form__form--postcode">Code postal *</label>
+												<input type="text" id="form__form--postcodeInput" name="form__form--postcodeInput"
+													class="form__form--input" value required>
+												<div class="form__form--invalidFeedback">Veuillez saisir votre code postal.</div>
+											</div>
+
+											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
+												<label class="form__form--labelEmpty" for="form__form--city">Ville *</label>
+												<input type="text" id="form__form--cityInput" name="form__form--cityInput"
+													class="form__form--input" value required>
+												<div class="form__form--invalidFeedback">Veuillez saisir votre ville.</div>
+											</div>
+
+											<div class="3/3 3/3--thumb 3/3--pocket grid--right form__form--buttonStep1">
+												<a href="" class="button button--primary form__form--button" aria-label="PREVIOUS"
+													title="PREVIOUS">
+													{% include 'icon-arrow-slider-left'%}
+												</a>
+												<a href="" class="button button--primary form__form--button" aria-label="SUVANT"
+													title="SUIVANT">
+													{% include 'icon-arrow-slider' %}
+													SUIVANT</a>
+											</div>
+										</div>
+										<div class="form__form--stepform" id="form__form--stepForm-2">
+
+											<div class="form__form--contactStep">Étape 3 sur 4</div>
+											<div class="form__form--contactTitle">Vous aussi, devenez Conseiller Sunology®</div>
+
+											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
+												<label class="form__form--labelEmpty" for="form__form--phone">Téléphone *</label>
+												<input type="text" id="form__form--phoneInput" name="form__form--phoneInput"
+													class="form__form--input" value required>
+												<div class="form__form--invalidFeedback">Veuillez saisir votre téléphone.</div>
+											</div>
+
+											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
+												<label class="form__form--labelEmpty" for="form__form--mail">Mail *</label>
+												<input type="text" id="form__form--mailInput" name="form__form--mailInput"
+													class="form__form--input" value required>
+												<div class="form__form--invalidFeedback">Veuillez saisir votre mail.</div>
+											</div>
+
+											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
+												<label class="form__form--labelTextarea" for="form__form--message">Votre message - Si vous
+													connaissez déjà un
+													conseiller, merci d'indiquer son nom</label>
+												<textarea id="form__form--message" name="form__form--message"
+													class="form__form--message"></textarea>
+											</div>
+
+											<div class="3/3 3/3--thumb 3/3--pocket grid--right form__form--buttonStep1">
+												<a href="" class="button button--primary form__form--button" aria-label="PREVIOUS"
+													title="PREVIOUS">
+													{% include 'icon-arrow-slider-left'%}
+												</a>
+												<a href="" class="button button--primary form__form--button" aria-label="SUVANT"
+													title="SUIVANT">
+													{% include 'icon-arrow-slider' %}
+													SUIVANT</a>
+											</div>
+										</div>
+										<div class="form__form--stepform" id="form__form--stepForm-3">
+
+											<div class="form__form--contactStep">Étape 4 sur 4</div>
+											<div class="form__form--contactTitle">Vous aussi, devenez Conseiller Sunology®</div>
+
+											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
+												<div class="form__form--radioRgpd">
+													<input type="checkbox" id="form__form--radioRgpd" name="form__form--radioRgpd"
+														class="form__form--radioRgpd" value required>
+													<label for="form__form--radioRgpd" class="form__form--radioRgpdLabel">
+														J'accèpte la
+														<a href="" target="_blank" style="color: #21E8FF;">déclaration de confidentialité</a>
+														*
+													</label>
+													<div class="form__form--invalidFeedback">Veuillez accèpter la déclaration de confidentialité.
+													</div>
+												</div>
+												<div class="form__form--mention">
+													Les données personnelles vous concernant suivies d’un astérisque (*) sont nécessaires à
+													SUNOLOGY au traitement de
+													votre demande d’information.
+													Pour de plus amples détails sur l’utilisations de vos données personnelles, rendez-vous dans
+													la
+													<a href="" target="_blank" style="color: #21E8FF;">Politique de confidentialité</a>
+												</div>
+												<hr>
+												<div class="form__form--star">
+													* = Champs obligatoires
+												</div>
+											</div>
+											<div class="3/3 3/3--thumb 3/3--pocket grid--right form__form--buttonStep1">
+												<a href="" class="button button--primary form__form--button" aria-label="PREVIOUS"
+													title="PREVIOUS">
+													{% include 'icon-arrow-slider-left'%}
+												</a>
+												<a href="" class="button button--primary form__form--button" aria-label="SUVANT"
+													title="SUIVANT">
+													{% include 'icon-arrow-slider' %}
+													ÊTRE CONTACTÉ</a>
+											</div>
+										</div>
+									</form>
+									{%- endif -%}
+									{%- endform -%}
 								</div>
 							</div>
 						</div>
@@ -152,10 +302,13 @@
 									Vous pourrez échanger sur les produits et services avec vos clients et aurez l’occasion de développer
 									votre réseau professionnel.
 								</p>
-								<a href="/collections/all" class="button button--primary" aria-label="EXEMPLE TITRE"
-									title="EXEMPLE TITRE">
-									{% include 'icon-arrow-slider' %}
-									en savoir plus</a>
+
+								<div class="3/3 3/3--thumb 3/3--pocket grid--right">
+									<a href="/collections/all" class="button button--primary info__button" aria-label="en savoir plus"
+										title="en savoir plus">
+										{% include 'icon-arrow-slider' %}
+										en savoir plus</a>
+								</div>
 							</div>
 						</div>
 					</div>
