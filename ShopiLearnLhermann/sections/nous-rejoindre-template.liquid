@@ -18,14 +18,14 @@
 									{%- form 'contact' -%}
 
 									{%- if form.posted_successfully? -%}
-									<div class="form__form--inputValid successForm feedback">
+									<div class="successForm feedback">
 										<p>{{ 'contact.form.submit_success' | t }}</p>
 									</div>
 
 									{%- else -%}
 
 									{%- if form.errors -%}
-									<div class="form__form--inputInvalid feedback error p">
+									<div class="feedback error p">
 										{{ form.errors | default_errors }}
 									</div>
 									{%- endif -%}
@@ -46,7 +46,7 @@
 															<label class="form__form--radio" for="form__form--genderF">
 																Madame
 																<input class="form__form--radioInput" type="radio" id="form__form--genderF"
-																	name="form__form--gender" value="Madame">
+																	name="contact[gender]" value="Madame">
 																<span class="form__form--checkmark" for="form__form--genderF"></span>
 															</label>
 														</div>
@@ -54,7 +54,7 @@
 															<label class="form__form--radio" for="form__form--genderM">
 																Monsieur
 																<input class="form__form--radioInput" type="radio" id="form__form--genderM"
-																	name="form__form--gender" value="Monsieur">
+																	name="contact[gender]" value="Monsieur">
 																<span class="form__form--checkmark" for="form__form--genderM"></span>
 															</label>
 														</div>
@@ -62,42 +62,23 @@
 												</div>
 
 												<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
-													<label class="form__form--labelEmpty" for="form__form--firstname">Prénom *</label>
-													<input type="text" id="form__form--firstnameInput" name="form__form--firstnameInput"
-														class="form__form--input" value required>
+													<input type="text" id="form__form--firstnameInput" name="contact[firstname]"
+														class="form__form--input form__form--validation" placeholder="Prénom *" value required>
 													<div class="form__form--invalidFeedback">Veuillez saisir votre prénom.</div>
 												</div>
 
 												<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
-													<label class="form__form--labelEmpty" for="form__form--lastname">Nom *</label>
-													<input type="text" id="form__form--lastnameInput" name="form__form--lastnameInput"
-														class="form__form--input" value required>
+													<input type="text" id="form__form--lastnameInput" name="contact[lastname]"
+														class="form__form--input form__form--validation" placeholder="Nom *" value required>
 													<div class="form__form--invalidFeedback">Veuillez saisir votre nom.</div>
 												</div>
 
 												<div class="3/3 3/3--thumb 3/3--pocket grid--right form__form--buttonWrapper">
-													<button id="btn0" type="submit" onclick="" class="button button--primary form__form--button"
+													<button id="btn0" type="button" class="button button--primary form__form--button"
 														aria-label="SUIVANT" title="SUIVANT">
 														{% include 'icon-arrow-slider' %}
-														SUIVANT</button>
-													<script>
-														function stepformzeroS0() {
-															let stepform = document.getElementById('form__form--stepForm-0');
-
-															stepform.setAttribute('class', 'stepform--0None');
-														}
-
-														function stepformoneS0() {
-															let stepform = document.getElementById('form__form--stepForm-1');
-
-															stepform.setAttribute('class', 'stepform--1');
-														}
-
-														const btn0 = document.getElementById("btn0");
-
-														btn0.addEventListener("click", stepformzeroS0);
-														btn0.addEventListener("click", stepformoneS0);
-													</script>
+														SUIVANT
+													</button>
 												</div>
 											</div>
 										</div>
@@ -107,29 +88,25 @@
 											<div class="form__form--contactTitle">Vous aussi, devenez Conseiller Sunology®</div>
 
 											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
-												<label class="form__form--labelEmpty" for="form__form--streetnumber">Numéro de rue</label>
-												<input type="text" id="form__form--streetnumberInput" name="form__form--streetnumberInput"
-													class="form__form--input" value>
+												<input type="text" id="form__form--streetnumberInput" name="contact[streetnumber]"
+													class="form__form--input form__form--validation" placeholder="Numéro de rue" value>
 											</div>
 
 											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
-												<label class="form__form--labelEmpty" for="form__form--street">Rue *</label>
-												<input type="text" id="form__form--streetInput" name="form__form--streetInput"
-													class="form__form--input" value required>
+												<input type="text" id="form__form--streetInput" name="contact[street]"
+													class="form__form--input form__form--validation" placeholder="Rue *" value required>
 												<div class="form__form--invalidFeedback">Veuillez saisir votre rue.</div>
 											</div>
 
 											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
-												<label class="form__form--labelEmpty" for="form__form--postcode">Code postal *</label>
-												<input type="text" id="form__form--postcodeInput" name="form__form--postcodeInput"
-													class="form__form--input" value required>
+												<input type="text" id="form__form--postcodeInput" name="contact[postcode]"
+													class="form__form--input form__form--validation" placeholder="Code postal *" value required>
 												<div class="form__form--invalidFeedback">Veuillez saisir votre code postal.</div>
 											</div>
 
 											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
-												<label class="form__form--labelEmpty" for="form__form--city">Ville *</label>
-												<input type="text" id="form__form--cityInput" name="form__form--cityInput"
-													class="form__form--input" value required>
+												<input type="text" id="form__form--cityInput" name="contact[city]"
+													class="form__form--input form__form--validation" placeholder="Ville *" value required>
 												<div class="form__form--invalidFeedback">Veuillez saisir votre ville.</div>
 											</div>
 
@@ -141,42 +118,9 @@
 												<button type="button" id="btn1" class="button button--primary form__form--button"
 													aria-label="SUIVANT" title="SUIVANT">
 													{% include 'icon-arrow-slider' %}
-													SUIVANT</button>
-												<script>
-													function stepformoneS1() {
-														let stepform = document.getElementById('form__form--stepForm-1');
-
-														stepform.setAttribute('class', 'stepform--1None');
-													}
-
-													function stepformtwoS1() {
-														let stepform = document.getElementById('form__form--stepForm-2');
-
-														stepform.setAttribute('class', 'stepform--2');
-													}
-
-
-													function stepformoneS1Rev() {
-														let stepform = document.getElementById('form__form--stepForm-0');
-
-														stepform.setAttribute('class', 'stepform--0');
-													}
-
-													function stepformtwoS1Rev() {
-														let stepform = document.getElementById('form__form--stepForm-1');
-
-														stepform.setAttribute('class', 'stepform--1None');
-													}
-
-
-													const btn1 = document.getElementById("btn1");
-													const btn1Rev = document.getElementById("btn1Rev");
-
-													btn1.addEventListener("click", stepformoneS1);
-													btn1.addEventListener("click", stepformtwoS1);
-													btn1Rev.addEventListener("click", stepformoneS1Rev);
-													btn1Rev.addEventListener("click", stepformtwoS1Rev);
-												</script>
+													SUIVANT
+												</button>
+											
 											</div>
 										</div>
 										<div class="form__form--stepform stepform--2None" id="form__form--stepForm-2">
@@ -185,16 +129,14 @@
 											<div class="form__form--contactTitle">Vous aussi, devenez Conseiller Sunology®</div>
 
 											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
-												<label class="form__form--labelEmpty" for="form__form--phone">Téléphone *</label>
-												<input type="text" id="form__form--phoneInput" name="form__form--phoneInput"
-													class="form__form--input" value required>
+												<input type="text" id="form__form--phoneInput" name="contact[phone]"
+													class="form__form--input form__form--validation" placeholder="Téléphone *" value required>
 												<div class="form__form--invalidFeedback">Veuillez saisir votre téléphone.</div>
 											</div>
 
 											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
-												<label class="form__form--labelEmpty" for="form__form--mail">Mail *</label>
-												<input type="email" id="form__form--mailInput" name="form__form--mailInput"
-													class="form__form--input" value required>
+												<input type="text" id="form__form--mailInput" name="contact[email]"
+													class="form__form--input form__form--validation" placeholder="Mail *" value required>
 												<div class="form__form--invalidFeedback">Veuillez saisir votre mail.</div>
 											</div>
 
@@ -202,8 +144,8 @@
 												<label class="form__form--labelTextarea" for="form__form--message">Votre message - Si vous
 													connaissez déjà un
 													conseiller, merci d'indiquer son nom</label>
-												<textarea id="form__form--message" name="form__form--message"
-													class="form__form--message"></textarea>
+												<textarea id="form__form--message" name="contact[message]"
+													class="form__form--message form__form--validation"></textarea>
 											</div>
 
 											<div class="3/3 3/3--thumb 3/3--pocket grid--right form__form--buttonStep1">
@@ -214,40 +156,9 @@
 												<button type="button" id="btn2" class="button button--primary form__form--button"
 													aria-label="SUIVANT" title="SUIVANT">
 													{% include 'icon-arrow-slider' %}
-													SUIVANT</button>
-												<script>
-													function stepformtwoS2() {
-														let stepform = document.getElementById('form__form--stepForm-2');
-
-														stepform.setAttribute('class', 'stepform--2None');
-													}
-
-													function stepformthreeS2() {
-														let stepform = document.getElementById('form__form--stepForm-3');
-
-														stepform.setAttribute('class', 'stepform--3');
-													}
-
-													function stepformtwoS2Rev() {
-														let stepform = document.getElementById('form__form--stepForm-1');
-
-														stepform.setAttribute('class', 'stepform--1');
-													}
-
-													function stepformthreeS2Rev() {
-														let stepform = document.getElementById('form__form--stepForm-2');
-
-														stepform.setAttribute('class', 'stepform--2None');
-													}
-
-													const btn2 = document.getElementById("btn2");
-													const btn2Rev = document.getElementById("btn2Rev");
-
-													btn2.addEventListener("click", stepformtwoS2);
-													btn2.addEventListener("click", stepformthreeS2);
-													btn2Rev.addEventListener("click", stepformtwoS2Rev);
-													btn2Rev.addEventListener("click", stepformthreeS2Rev);
-												</script>
+													SUIVANT
+												</button>
+											
 											</div>
 										</div>
 										<div class="form__form--stepform stepform--3None" id="form__form--stepForm-3">
@@ -261,7 +172,7 @@
 														class="form__form--radioRgpdInput" value required>
 													<label for="form__form--radioRgpd" class="form__form--radioRgpdLabel">
 														J'accèpte la
-														<a href="" target="" style="color: #21E8FF;">déclaration de confidentialité</a>
+														<a style="color: #21E8FF;">déclaration de confidentialité</a>
 														*
 													</label>
 													<div class="form__form--invalidFeedback">Veuillez accèpter la déclaration de confidentialité.
@@ -273,7 +184,7 @@
 													votre demande d’information.
 													Pour de plus amples détails sur l’utilisations de vos données personnelles, rendez-vous dans
 													la
-													<a href="" target="" style="color: #21E8FF;">Politique de confidentialité</a>
+													<a style="color: #21E8FF;">Politique de confidentialité</a>
 												</div>
 												<hr>
 												<div class="form__form--star">
@@ -285,29 +196,12 @@
 													aria-label="SUIVANT" title="SUIVANT">
 													{% include 'icon-arrow-slider-left' %}
 												</button>
-												<button type="button" class="button button--primary form__form--button"
-													aria-label="ÊTRE CONTACTÉ" title="ÊTRE CONTACTÉ">
+												<button type="submit" class="button button--primary form__form--button"
+													aria-label="ÊTRE CONTACTÉ" title="ÊTRE CONTACTÉ" id="submitButton">
 													{% include 'icon-arrow-slider' %}
 													ÊTRE CONTACTÉ
 												</button>
-												<script>
-													function stepformThreeS3Rev() {
-														let stepform = document.getElementById('form__form--stepForm-3');
-
-														stepform.setAttribute('class', 'stepform--3None');
-													}
-
-													function stepformTwoS3RevS0() {
-														let stepform = document.getElementById('form__form--stepForm-2');
-
-														stepform.setAttribute('class', 'stepform--2');
-													}
-
-													const btn3Rev = document.getElementById("btn3Rev");
-
-													btn3Rev.addEventListener("click", stepformThreeS3Rev);
-													btn3Rev.addEventListener("click", stepformTwoS3RevS0);
-												</script>
+												
 											</div>
 										</div>
 									</form>
@@ -420,20 +314,19 @@
 		</main>
 	</div>
 </section>
-
 {% schema %}
 {
-	"name": "nous-rejoindre",
-	"settings": [{
-		"id": "image",
-		"type": "image_picker",
-		"label": "background-image selection"
-	}],
-	"blocks": [],
-	"presets": [{
-		"name": "nous-rejoindre",
-		"category": "custom section"
-	}]
+"name": "nous-rejoindre",
+"settings": [{
+"id": "image",
+"type": "image_picker",
+"label": "background-image selection"
+}],
+"blocks": [],
+"presets": [{
+"name": "nous-rejoindre",
+"category": "custom section"
+}]
 }
 {% endschema %}
 
