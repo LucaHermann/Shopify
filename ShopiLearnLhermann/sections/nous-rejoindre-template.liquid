@@ -31,7 +31,7 @@
 									{%- endif -%}
 
 									<form id="form__form--contactWrapper" class="form__form--contactWrapper">
-										<div class="form__form--stepform stepform--0" id="form__form--stepForm-0">
+										<div stepform="1" class="form__form--stepform stepform--0" id="form__form--stepForm-0">
 
 											<div class="form__form--contactStep">Étape 1 sur 4</div>
 											<div class="form__form--contactTitle">Vous aussi, devenez Conseiller Sunology®</div>
@@ -54,7 +54,7 @@
 															<label class="form__form--radio" for="form__form--genderM">
 																Monsieur
 																<input class="form__form--radioInput" type="radio" id="form__form--genderM"
-																	name="contact[gender]" value="Monsieur">
+																	name="contact[gender]" value="Monsieur" checked>
 																<span class="form__form--checkmark" for="form__form--genderM"></span>
 															</label>
 														</div>
@@ -74,15 +74,16 @@
 												</div>
 
 												<div class="3/3 3/3--thumb 3/3--pocket grid--right form__form--buttonWrapper">
-													<button id="btn0" type="button" class="button button--primary form__form--button"
-														aria-label="SUIVANT" title="SUIVANT">
+													<button id="btn0" type="button"
+														class="button button--primary form__form--button form-next-step" aria-label="SUIVANT"
+														title="SUIVANT" to-step="2">
 														{% include 'icon-arrow-slider' %}
 														SUIVANT
 													</button>
 												</div>
 											</div>
 										</div>
-										<div class="form__form--stepform stepform--1None" id="form__form--stepForm-1">
+										<div stepform="2" class="form__form--stepform stepform--1None" id="form__form--stepForm-1">
 
 											<div class="form__form--contactStep">Étape 2 sur 4</div>
 											<div class="form__form--contactTitle">Vous aussi, devenez Conseiller Sunology®</div>
@@ -111,19 +112,20 @@
 											</div>
 
 											<div class="3/3 3/3--thumb 3/3--pocket grid--right form__form--buttonStep1">
-												<button type="button" id="btn1Rev" class="button button--primary form__form--button"
-													aria-label="PREVIOUS" title="PREVIOUS">
+												<button type="button" id="btn1Rev"
+													class="button button--primary form__form--button previous-btn" aria-label="PREVIOUS"
+													title="PREVIOUS" to-step="1">
 													{% include 'icon-arrow-slider-left'%}
 												</button>
-												<button type="button" id="btn1" class="button button--primary form__form--button"
-													aria-label="SUIVANT" title="SUIVANT">
+												<button id="btn0" type="button" class="button button--primary form__form--button form-next-step"
+													aria-label="SUIVANT" title="SUIVANT" to-step="3">
 													{% include 'icon-arrow-slider' %}
 													SUIVANT
 												</button>
-											
+
 											</div>
 										</div>
-										<div class="form__form--stepform stepform--2None" id="form__form--stepForm-2">
+										<div stepform="3" class="form__form--stepform stepform--2None" id="form__form--stepForm-2">
 
 											<div class="form__form--contactStep">Étape 3 sur 4</div>
 											<div class="form__form--contactTitle">Vous aussi, devenez Conseiller Sunology®</div>
@@ -135,7 +137,7 @@
 											</div>
 
 											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center">
-												<input type="text" id="form__form--mailInput" name="contact[email]"
+												<input type="email" id="form__form--mailInput" name="contact[email]"
 													class="form__form--input form__form--validation" placeholder="Mail *" value required>
 												<div class="form__form--invalidFeedback">Veuillez saisir votre mail.</div>
 											</div>
@@ -149,26 +151,27 @@
 											</div>
 
 											<div class="3/3 3/3--thumb 3/3--pocket grid--right form__form--buttonStep1">
-												<button type="button" id="btn2Rev" class="button button--primary form__form--button"
-													aria-label="SUIVANT" title="SUIVANT">
+												<button type="button" id="btn2Rev"
+													class="button button--primary form__form--button previous-btn" aria-label="SUIVANT"
+													title="SUIVANT" to-step="2">
 													{% include 'icon-arrow-slider-left' %}
 												</button>
-												<button type="button" id="btn2" class="button button--primary form__form--button"
-													aria-label="SUIVANT" title="SUIVANT">
+												<button id="btn0" type="button" class="button button--primary form__form--button form-next-step"
+													aria-label="SUIVANT" title="SUIVANT" to-step="4">
 													{% include 'icon-arrow-slider' %}
 													SUIVANT
 												</button>
-											
+
 											</div>
 										</div>
-										<div class="form__form--stepform stepform--3None" id="form__form--stepForm-3">
+										<div stepform="4" class="form__form--stepform stepform--3None" id="form__form--stepForm-3">
 
 											<div class="form__form--contactStep">Étape 4 sur 4</div>
 											<div class="form__form--contactTitle">Vous aussi, devenez Conseiller Sunology®</div>
 
 											<div class="3/3 3/3--thumb 3/3--pocket grid__cell--center form__form--credentials">
 												<div class="form__form--radioRgpd">
-													<input type="checkbox" id="form__form--radioRgpd" name="form__form--radioRgpd"
+													<input type="checkbox" id="form__form--radioRgpd" name="contact[cgu]"
 														class="form__form--radioRgpdInput" value required>
 													<label for="form__form--radioRgpd" class="form__form--radioRgpdLabel">
 														J'accèpte la
@@ -192,8 +195,9 @@
 												</div>
 											</div>
 											<div class="3/3 3/3--thumb 3/3--pocket grid--right form__form--buttonStep1">
-												<button type="button" id="btn3Rev" class="button button--primary form__form--button"
-													aria-label="SUIVANT" title="SUIVANT">
+												<button type="button" id="btn3Rev"
+													class="button button--primary form__form--button previous-btn" aria-label="SUIVANT"
+													title="SUIVANT" to-step="3">
 													{% include 'icon-arrow-slider-left' %}
 												</button>
 												<button type="submit" class="button button--primary form__form--button"
@@ -201,7 +205,7 @@
 													{% include 'icon-arrow-slider' %}
 													ÊTRE CONTACTÉ
 												</button>
-												
+
 											</div>
 										</div>
 									</form>
@@ -254,12 +258,13 @@
 									<figure class="video__figure--container">
 										<div class="video__iframe--wrapper">
 											<iframe class="video__iframe--content" width="960" height="540"
-												src="https://www.youtube.com/embed/hTCkTGZ5b6Q" frameborder="0" allow="accelerometer; 
-                             autoplay; 
-                             clipboard-write; 
-                             encrypted-media; 
-                             gyroscope; 
-                             picture-in-picture" allowfullscreen></iframe>
+												src="https://www.youtube.com/embed/hTCkTGZ5b6Q" frameborder="0"
+												allow="accelerometer; 
+                                                                                                     autoplay; 
+                                                                                                     clipboard-write; 
+                                                                                                     encrypted-media; 
+                                                                                                     gyroscope; 
+                                                                                                     picture-in-picture" allowfullscreen></iframe>
 										</div>
 									</figure>
 								</div>
@@ -314,6 +319,7 @@
 		</main>
 	</div>
 </section>
+
 {% schema %}
 {
 "name": "nous-rejoindre",
