@@ -1,0 +1,82 @@
+<!-- Include jQuery from Google's CDN. -->
+<!-- Your theme may already include jQuery - if so, you can skip this line. -->
+	{{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' | script_tag; }}
+<!-- Include Cart.js -->
+	{{ 'cart.min.js' | asset_url | script_tag; }}
+<!-- Initialise Cart.js once the page has loaded -->
+<script type="text/javascript">
+		jQuery(function() {
+  	CartJS.init({{ cart | json }});
+	});
+</script>
+<!--Second Configuration Cart.js-->
+<script type="text/javascript">
+		jQuery(function() {
+        CartJS.init({{ cart | json }}, {
+            "dataAPI": false,
+            "requestBodyClass": "loading"
+        });
+    });
+</script>
+<!--Adding to Cart Button-->
+<button id="button">Add a Widget</button>
+
+<script type="text/javascript">
+		$('#button').click(function() {
+        CartJS.addItem(12345678);
+    });
+</script>
+<!--Adding button Method 2 -->
+<button id="button">Add Five Widgets</button>
+
+<script type="text/javascript">
+		$('#button').click(function() {
+        CartJS.addItem(12345678, 5, {
+            "added_by": "Cart.js"
+        });
+    });
+</script>
+<!--Updating cart Method-->
+<button id="button-double">Double my Order!</button>
+
+<script type="text/javascript">
+		$('#button-double').click(function() {
+        var newQuantity = CartJS.cart.items[0].quantity * 2;
+        CartJS.updateItem(1, newQuantity);
+    });
+</script>
+<!--Remove from cart-->
+<label>
+    <input id="gift-wrap-checkbox" type="checkbox" />
+    Please gift wrap my order
+</label>
+
+<script type="text/javascript">
+	// Update the 'Gift Wrap' cart attribute based on the state of the checkbox whenever it changes.
+    $('#gift-wrap-checkbox').change(function() {
+      CartJS.setAttribute('Gift Wrap', this.checked ? 'Yes': 'No' );
+    });
+</script>
+<!--Callback Method-->
+<button id="button">Add to Cart</button>
+
+<div id="message"></div>
+
+<script type="text/javascript">
+		$('#button').click(function() {
+  // Call the addItem() method.
+  // Note the empty object as the third argument, representing no line item properties.  
+  CartJS.addItem(12345678, 1, {}, {			
+  // Define a success callback to display a success message.
+  "success": function(data, textStatus, jqXHR) {
+    $('#message').addClass('message-success');
+    $('#message').html('Successfully added to cart.');
+  },
+  // Define an error callback to display an error message.
+  "error": function(jqXHR, textStatus, errorThrown) {
+	  $('#message').addClass('message-error');
+    $('#message').html('There was a problem adding to the cart!');
+   }
+ });
+});
+</script>;
