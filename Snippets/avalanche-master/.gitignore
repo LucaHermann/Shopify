@@ -1,0 +1,8 @@
+.DS_Store
+*.css
+!avalanche.min.css
+*.map
+.sass-cache
+node_modules/
+bower_components/
+package-lock.json
