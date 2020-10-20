@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg">
-	<defs>
-		<pattern id="pattern_DkVT5p" patternUnits="userSpaceOnUse" width="40" height="40" patternTransform="rotate(45)">
-			<line x1="0" y="0" x2="0" y2="40" stroke="#21E8FF" stroke-width="40" />
-		</pattern>
-	</defs>
-	<rect width="100%" height="100%" fill="url(#pattern_DkVT5p)" opacity="1" />
-</svg>
